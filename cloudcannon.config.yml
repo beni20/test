@@ -1,0 +1,288 @@
+source: site
+paths:
+  uploads: uploads
+  uploads_use_relative_path: false
+  static: ''
+  dam_uploads: ''
+  dam_static: ''
+  collections: collections
+  data: _data
+  layouts: _layouts
+  includes: _includes
+collections_config:
+  data:
+    path: _data
+    output: false
+    icon:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  posts:
+    path: collections/_posts
+    output: true
+    icon:
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: site/schemas/post.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  pages:
+    path: collections/_pages
+    output: true
+    icon: wysiwyg
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: site/schemas/page.html
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  projects:
+    path: collections/_projects
+    output: true
+    description: ''
+    icon: work_outline
+    preview:
+      text:
+      subtext:
+        - key: subtitle
+      icon:
+      icon_color:
+      image:
+      metadata:
+      gallery:
+    _editables:
+    _inputs:
+    _select_data:
+    _structures:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: site/schemas/project.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  testimonials:
+    path: collections/_testimonials
+    output: false
+    description: ''
+    icon: format_quote
+    preview:
+      text:
+      subtext:
+        - key: position
+      icon:
+      icon_color:
+      image:
+      metadata:
+      gallery:
+    sort:
+      key: name
+    sort_options:
+      - key: name
+      - key: name
+        order: desc
+      - key: position
+      - key: position
+        order: desc
+    _editables:
+    _enabled_editors:
+      - data
+    _inputs:
+    _select_data:
+    _structures:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: site/schemas/testimonial.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  drafts:
+    path: collections/_drafts
+    output: true
+    icon:
+    create:
+      publish_to: posts
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+collection_groups:
+  - heading: Content
+    collections:
+      - pages
+      - projects
+      - testimonials
+  - heading: Blogging
+    collections:
+      - posts
+      - drafts
+  - heading: Settings
+    collections:
+      - data
+_inputs:
+  tags:
+    type: multiselect
+    options:
+      allow_create: true
+      empty_type: array
+    cascade: true
+  categories:
+    type: multiselect
+    options:
+      allow_create: true
+      empty_type: array
+    cascade: true
+_structures:
+  content_blocks:
+    style: modal
+    id_key: _bookshop_name
+    values:
+      - value:
+          _bookshop_name: blog-section
+          title: ''
+          description_html: ''
+          link_url: ''
+          show_posts: true
+        label: Blog
+        description: Blog Section with heading, a image, a description and a link
+        icon: wysiwyg
+        tags:
+          - Content
+        _inputs:
+      - value:
+          _bookshop_name: contact-form
+          form_title: ''
+          form_description: ''
+          form_success_page: ''
+          form_submission_email: ''
+          form_button_text: ''
+        label: Contact Form
+        description: Generic contact form
+        icon: wysiwyg
+        tags:
+          - Text
+        _inputs:
+      - value:
+          _bookshop_name: content
+          content_html: ''
+        label: Content
+        description: Generic rich content area
+        icon: wysiwyg
+        tags:
+          - Text
+        _inputs:
+      - value:
+          _bookshop_name: hero
+          title: ''
+          description_html: ''
+          image: ''
+          image_alt: ''
+          cta_button: ''
+          cta_button_link: ''
+          works_button: ''
+          works_button_link: ''
+        label: Hero
+        description: Page hero with the heading, description, buttons, and an image
+        icon: wysiwyg
+        tags:
+          - Structure
+          - Text
+          - Links
+        _inputs:
+      - value:
+          _bookshop_name: newsletter
+          newsletter_title: ''
+          newsletter_description: ''
+          newsletter_identifier: ''
+          newsletter_button: ''
+        label: Newsletter Form
+        description: Generic newsletter form
+        icon: wysiwyg
+        tags:
+          - Text
+        _inputs:
+      - value:
+          _bookshop_name: page-heading
+          title: ''
+          description: ''
+        label: Page Heading
+        description: Generic page heading
+        icon: wysiwyg
+        tags:
+          - Content
+        _inputs:
+      - value:
+          _bookshop_name: page-image
+          image: ''
+          image_alt: ''
+        label: Page Image
+        description: Page image
+        icon: wysiwyg
+        tags:
+          - Headers
+        _inputs:
+      - value:
+          _bookshop_name: posts-list
+          show_posts: true
+        label: Posts List
+        description: Lists all of the site's blog posts
+        icon: wysiwyg
+        tags:
+          - Collections
+        _inputs:
+      - value:
+          _bookshop_name: projects-list
+          show_projects: true
+        label: Projects List
+        description: Lists all of the site's projects
+        icon: wysiwyg
+        tags:
+          - Collections
+        _inputs:
+      - value:
+          _bookshop_name: projects-section
+          title: ''
+          description_html: ''
+          link_url: ''
+          show_projects: true
+        label: Projects
+        description: Projects Section with heading, a description and a link
+        icon: wysiwyg
+        tags:
+          - Content
+        _inputs:
+      - value:
+          _bookshop_name: testimonials-section
+          title: ''
+          description_html: ''
+          show_testimonials: true
+        label: Testimonials
+        description: Testimonials Section with heading, a description and a link
+        icon: wysiwyg
+        tags:
+          - Content
+        _inputs:
+data_config: true
+timezone: Etc/UTC
